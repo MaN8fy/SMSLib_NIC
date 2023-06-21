@@ -4,7 +4,7 @@
 		<TargetFrameworks>netstandard1.4;net35</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>SMSLib</PackageId>
-		<PackageVersion>1.0.0</PackageVersion>
+		<PackageVersion>1.0.1</PackageVersion>
 		<Authors>Matyas Nic</Authors>
 		<Company>Matyas</Company>
 		<PackageTags>Sms, Twilio</PackageTags>
