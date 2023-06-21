@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard1.4;net35</TargetFrameworks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>SMSLib</PackageId>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Authors>Matyas Nic</Authors>
+		<Company>Matyas</Company>
+		<PackageTags>Library, NuGet</PackageTags>
+		<Title>SMSLib</Title>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Twilio" Version="6.8.0" />
+  </ItemGroup>
+
+</Project>
