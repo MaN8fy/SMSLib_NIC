@@ -2,18 +2,20 @@
 
 ## IMessageSender
 
-Rozhraní ***IMessageSender*** definuje funkci SendMessage, která slouží k odeslání zprávy.
+Rozhrani ***IMessageSender*** definuje funkci SendMessage, ktera slouzi k odeslani zpravy.
 
-Tato funkce pøíjímá 5 parametrù:
+Tato funkce prijima 5 parametru:
 
-- `accountSid` - ID úètu
-- `authToken` - autentifikaèní token
-- `sender` - èíslo odesílatele
-- `recipient` - èíslo pøíjemce
-- `message` - text zprávy
+- `accountSid` - ID uctu
+- `authToken` - autentifikacni token
+- `sender` - cislo odesilatele
+- `recipient` - cislo prijemce
+- `message` - text zpravy
  
+Navraci tridu ***MessageResult***, ktera obsahuje informavce o stavu zpravy.
+
 ## TwilioSmsSender
 
-***TwilioSmsSender*** je implementace rozhraní ***IMessageSender*** pro bránu Twilio.
+***TwilioSmsSender*** je implementace rozhrani ***IMessageSender*** pro branu Twilio.
 
-Pro odeslání zprávy staèí vyvolat funkci SendMessage a pøedat všech 5 potøebných parametrù. 
+Pro odeslani zpravy staci vyvolat funkci SendMessage a predat vsech 5 potrebnych parametru. 

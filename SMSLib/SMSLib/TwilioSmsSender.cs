@@ -7,7 +7,7 @@ namespace SMSLib
     public class TwilioSmsSender : IMessageSender
     {
         
-        public void SendMessage(string accountSid, string authToken, string sender, string recipient, string message)
+        public MessageResult SendMessage(string accountSid, string authToken, string sender, string recipient, string message)
         {
             TwilioClient.Init(accountSid, authToken);
 
@@ -18,6 +18,16 @@ namespace SMSLib
             };
 
             var sentMessage = MessageResource.Create(messageOptions);
+
+            var result = new MessageResult
+            {
+                Sid = sentMessage.Sid,
+                Status = sentMessage.Status.ToString(),
+                SentTime = sentMessage.DateSent,
+                Response = sentMessage.Body
+            };
+
+            return result;
 
         }
     }

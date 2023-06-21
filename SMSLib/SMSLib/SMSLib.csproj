@@ -7,7 +7,7 @@
 		<PackageVersion>1.0.0</PackageVersion>
 		<Authors>Matyas Nic</Authors>
 		<Company>Matyas</Company>
-		<PackageTags>Library, NuGet</PackageTags>
+		<PackageTags>Sms, Twilio</PackageTags>
 		<Title>SMSLib</Title>
 	</PropertyGroup>
 
