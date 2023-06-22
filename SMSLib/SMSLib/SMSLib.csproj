@@ -1,18 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard1.4;net35</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;net5</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>SMSLib</PackageId>
-		<PackageVersion>1.0.1</PackageVersion>
+		<PackageVersion>1.1.1</PackageVersion>
 		<Authors>Matyas Nic</Authors>
 		<Company>Matyas</Company>
-		<PackageTags>Sms, Twilio</PackageTags>
+		<PackageTags>Sms, Twilio, Vonage</PackageTags>
 		<Title>SMSLib</Title>
 	</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Twilio" Version="6.8.0" />
+    <PackageReference Include="Vonage" Version="6.5.0" />
   </ItemGroup>
 
 </Project>

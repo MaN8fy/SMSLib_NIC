@@ -5,30 +5,47 @@ using Twilio.Types;
 namespace SMSLib
 {
     public class TwilioSmsSender : IMessageSender
-    {
-        
-        public MessageResult SendMessage(string accountSid, string authToken, string sender, string recipient, string message)
+    {  
+        //implemention of SendMessage function for twilio gateway
+        public MessageResult SendMessage(string apiKey, string apiSecret, string sender, string recipient, string message)
         {
-            TwilioClient.Init(accountSid, authToken);
-
-            var messageOptions = new CreateMessageOptions(new PhoneNumber(recipient))
+            try
             {
-                From = new PhoneNumber(sender),
-                Body = message
-            };
+                //initializing twilio API
+                TwilioClient.Init(apiKey, apiSecret);
 
-            var sentMessage = MessageResource.Create(messageOptions);
+                //Sender, Recipient and SMS body
+                var messageOptions = new CreateMessageOptions(new PhoneNumber(recipient))
+                {
+                    From = new PhoneNumber(sender),
+                    Body = message
+                };
 
-            var result = new MessageResult
+                //sending message
+                var sentMessage = MessageResource.Create(messageOptions);
+
+                //handling response
+                var result = new MessageResult
+                {
+                    Id = sentMessage.Sid,
+                    Status = sentMessage.Status.ToString(),
+                    SentTime = sentMessage.DateSent.ToString(),
+                    MsgText = sentMessage.Body,
+                    ErrorMsg = sentMessage.ErrorMessage,
+                    Price = sentMessage.Price
+                };
+                return result;
+
+            } catch
             {
-                Sid = sentMessage.Sid,
-                Status = sentMessage.Status.ToString(),
-                SentTime = sentMessage.DateSent,
-                Response = sentMessage.Body
-            };
+                var result = new MessageResult
+                {
+                    Status = "Failed",
+                    ErrorMsg = "Something went wrong. Check all the parameters you are passing through."
+                };
 
-            return result;
-
+                return result;
+            }
         }
     }
 }

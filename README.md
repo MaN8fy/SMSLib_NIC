@@ -1,21 +1,34 @@
-# SMSLib_NIC Dokumentace
+# SMSLib Dokumentace
 
-## IMessageSender
+## interface - IMessageSender
 
-Rozhrani ***IMessageSender*** definuje funkci SendMessage, ktera slouzi k odeslani zpravy.
+Rozhraní ***IMessageSender*** definuje funkci SendMessage, která slouží k odeslání zprávy.
 
-Tato funkce prijima 5 parametru:
+Tato funkce pøijímá 5 parametrù:
 
-- `accountSid` - ID uctu
-- `authToken` - autentifikacni token
-- `sender` - cislo odesilatele
-- `recipient` - cislo prijemce
-- `message` - text zpravy
+- `apiKey` - ID úètu
+- `apiSecret` - autentifikaèní token
+- `sender` - èíslo odesílatele
+- `recipient` - èíslo pøíjemce
+- `message` - text zprávy
  
-Navraci tridu ***MessageResult***, ktera obsahuje informavce o stavu zpravy.
+Navrací tøídu ***MessageResult***, která obsahuje informace o stavu zprávy.
+
+- `Id` - ID zprávy
+- `Status` - status zprávy (odesláno, pøijato, odesláni selhalo, atd.)
+- `SentTime` - èas odeslání
+- `MsgText` - obsah zprávy
+- `ErrorMsg` - chybová zpráva
+- `Price` - cena SMS
 
 ## TwilioSmsSender
 
-***TwilioSmsSender*** je implementace rozhrani ***IMessageSender*** pro branu Twilio.
+***TwilioSmsSender*** je implementace rozhráni ***IMessageSender*** pro bránu Twilio.
 
-Pro odeslani zpravy staci vyvolat funkci SendMessage a predat vsech 5 potrebnych parametru. 
+Pro odesláni zprávy staèí vyvolat funkci SendMessage a pøedat všech 5 potøebných parametrù.
+
+## VonageSmsSender
+
+***VonageSmsSender*** je implementace rozhráni ***IMessageSender*** pro bránu Vonage.
+
+Pro odesláni zprávy staèí vyvolat funkci SendMessage a pøedat všech 5 potøebných parametrù.
